@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NAVSCMIntegrator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NAVSCMIntegrator_com_olympus_zeus_SystemService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/SystemService</Value>
+    </Setting>
+    <Setting Name="NAVSCMIntegrator_com_olympus_zeus_DynamicsNAVEmployeeCard_Service" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/DynamicsNAVEmployeeCard</Value>
+    </Setting>
+    <Setting Name="NAVSCMIntegrator_com_olympus_zeus_SalesItems_Service" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/SalesItems</Value>
+    </Setting>
+    <Setting Name="NAVSCMIntegrator_com_olympus_zeus_SCMItems_Service" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/SCMItems</Value>
+    </Setting>
+    <Setting Name="NAVSCMIntegrator_SCMCustomersSVC_SCMCustomers_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/SCMCustomers</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
