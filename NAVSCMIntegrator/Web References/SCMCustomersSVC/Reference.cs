@@ -50,19 +50,7 @@ namespace NAVSCMIntegrator.SCMCustomersSVC {
         private System.Threading.SendOrPostCallback DeleteOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
-        
-        /// <remarks/>
-        public SCMCustomers_Service() {
-            this.Url = global::NAVSCMIntegrator.Properties.Settings.Default.NAVSCMIntegrator_NAVSCMWebService_SCMCustomers_Service;
-            if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
-                this.UseDefaultCredentials = true;
-                this.useDefaultCredentialsSetExplicitly = false;
-            }
-            else {
-                this.useDefaultCredentialsSetExplicitly = true;
-            }
-        }
-        
+               
         public new string Url {
             get {
                 return base.Url;

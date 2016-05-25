@@ -17,5 +17,8 @@
     <Setting Name="NAVSCMIntegrator_SCMCustomersSVC_SCMCustomers_Service" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/SCMCustomers</Value>
     </Setting>
+    <Setting Name="NAVSCMIntegrator_SCMProductsSVC_SalesItems_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://zeus.olympus.com:8817/ALMASI2016/WS/MKBL_GOLIVE/Page/SalesItems</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

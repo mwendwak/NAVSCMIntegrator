@@ -69,5 +69,15 @@ namespace NAVSCMIntegrator.Properties {
                 return ((string)(this["NAVSCMIntegrator_SCMCustomersSVC_SCMCustomers_Service"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://zeus.olympus.com:8817/ALMASI2016/WS/MKBL_GOLIVE/Page/SalesItems")]
+        public string NAVSCMIntegrator_SCMProductsSVC_SalesItems_Service {
+            get {
+                return ((string)(this["NAVSCMIntegrator_SCMProductsSVC_SalesItems_Service"]));
+            }
+        }
     }
 }
