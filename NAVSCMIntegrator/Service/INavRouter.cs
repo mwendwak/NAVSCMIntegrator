@@ -23,4 +23,13 @@ namespace NAVSCMIntegrator
         NavCustomer parseStringCustomer(string xCustomerID,string xCustomerNames,string xCustomerBusGroup, string xRouteSalesArea
             , string xPINNo, string xCustomerPhoneNo, string xPostingGroup, string xVATGroup);
     }
+
+    [ServiceContract(Namespace = "http://www.kinetics.co.ke/NavSCMIntegrator/Products")]
+    public interface INavProduct
+    {
+        [OperationContract]
+        List <NavProduct> getProductsAll();
+        [OperationContract]
+        NavProduct getProductFiltered(string productCode);
+    }
 }

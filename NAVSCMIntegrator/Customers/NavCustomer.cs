@@ -6,6 +6,9 @@ using System.Web;
 
 namespace NAVSCMIntegrator
 {
+    using SCMCustomersSVC;
+
+    [Serializable]
     [DataContract]
     public class NavCustomer
     {
@@ -46,27 +49,5 @@ namespace NAVSCMIntegrator
             //do code to turn json cusomer data to strings
         }
 
-        public bool validateCustomer(NavCustomer customer)
-        {
-            //otherwise add code to do validations
-            return true;
-        }
-
-        public string createNavCustomer(NavCustomer cust)
-        {
-            string newCustomerCode = "UNDEF";
-            try
-            {
-                if (validateCustomer(cust))
-                {
-                    newCustomerCode = CustomerManager.NavCustomerCreate(cust);
-                };
-                return newCustomerCode;
-            }
-            catch (Exception ex)
-            {
-                return "'Response Code':'0000'" + "," + "'Message':'" + ex.InnerException.InnerException.Message + "'";
-            }
-        }
     }
 }

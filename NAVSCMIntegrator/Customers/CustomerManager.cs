@@ -35,5 +35,34 @@ namespace NAVSCMIntegrator
             }
             return newCustomerCode;
         }
+        public bool validateCustomer(NavCustomer customer)
+        {
+            //otherwise add code to do validations
+            return true;
+        }
+
+        public string createNavCustomer(NavCustomer cust)
+        {
+            string newCustomerCode = "UNDEF";
+            try
+            {
+                if (validateCustomer(cust))
+                {
+                    newCustomerCode = CustomerManager.NavCustomerCreate(cust);
+                };
+                return newCustomerCode;
+            }
+            catch (Exception ex)
+            {
+                return "'Response Code':'0000'" + "," + "'Message':'" + ex.InnerException.InnerException.Message + "'";
+            }
+        }
+
+        public NavCustomer convertCustomerToCustomer(SCMCustomers NavCustRec)
+        {
+            NavCustomer newNavCustomer = new NavCustomer();
+            //transpose Nav Customer record to Router customer
+            return newNavCustomer;
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         
         /// <remarks/>
         public SalesItems_Service() {
-            this.Url = global::NAVSCMIntegrator.Properties.Settings.Default.NAVSCMIntegrator_SCMProducsSVC_SalesItems_Service;
+            this.Url = global::NAVSCMIntegrator.Properties.Settings.Default.NAVSCMIntegrator_SCMProductsSVC_SalesItems_Service;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

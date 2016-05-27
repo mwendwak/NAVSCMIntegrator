@@ -125,6 +125,8 @@
   <ItemGroup>
     <Compile Include="Customers\NavCustomer.cs" />
     <Compile Include="Customers\CustomerManager.cs" />
+    <Compile Include="Products\NavProduct.cs" />
+    <Compile Include="Products\ProductManager.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -148,16 +150,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web References\SCMProductsSVC\Reference.map">
+    <None Include="Web References\SCMProductsSVC\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Web References\SCMProductsSVC\SalesItems.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -215,6 +218,8 @@
           <DevelopmentServerPort>51271</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/NAVSCMIntegrator</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/NAVSCMIntegrator</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
