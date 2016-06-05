@@ -10,7 +10,7 @@ using System.Web.Services;
 namespace NAVSCMIntegrator
 {
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [ServiceContract(Namespace = "http://www.kinetics.co.ke/NavSCMIntegrator/Customers")]
+    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Customers")]
     public interface INavCustomer
     {
         [OperationContract]
@@ -24,7 +24,7 @@ namespace NAVSCMIntegrator
             , string xPINNo, string xCustomerPhoneNo, string xPostingGroup, string xVATGroup);
     }
 
-    [ServiceContract(Namespace = "http://www.kinetics.co.ke/NavSCMIntegrator/Products")]
+    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Products")]
     public interface INavProduct
     {
         [OperationContract]
