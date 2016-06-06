@@ -29,6 +29,8 @@ namespace NAVSCMIntegrator
             public string Location      {get; set;}
         [DataMember]
         public string ItemTrackngID { get; set; }
+        [DataMember]
+        public string Family { get; set; }
 
         public decimal getItemPrice(string itemCode, string priceGroup)
         {

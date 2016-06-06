@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
+using System.Web.Script.Services;
+using System.Web.Services;
 
 namespace NAVSCMIntegrator
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-    
-    public class NavRouter : INavCustomer, INavProduct  //INHERIT ALL ENTITY INTERFACES
+    public class NavRouter : INavProduct //, INavCustomer,   //INHERIT ALL ENTITY INTERFACES
     {
         /* *********************************CUSTOMER RELATED FUNCTIONS****************************************** */
-        public string createCustomer(NavCustomer navCustomer)
+        /*public string createCustomer(NavCustomer navCustomer)
         {
             return CustomerManager.NavCustomerCreate(navCustomer);
         }
@@ -45,12 +42,21 @@ namespace NAVSCMIntegrator
             return true; //write code to perform the proper customer rec validations
         }
         /* *********************************PRODUCTS RELATED FUNCTIONS****************************************** */
+        [WebInvoke(Method = "GET",
+                       RequestFormat = WebMessageFormat.Json,
+                       ResponseFormat = WebMessageFormat.Json,
+                       BodyStyle = WebMessageBodyStyle.Wrapped,
+                       UriTemplate = "Products")]
         public List<NavProduct> getProductsAll()
         {
             ProductManager ProdManager = new ProductManager();
+            
             return ProdManager.getAllNavProducts();
         }
-
+        [WebInvoke(Method = "GET",
+                       RequestFormat = WebMessageFormat.Json,
+                       ResponseFormat = WebMessageFormat.Json,
+                       UriTemplate = "ProductId{productCode}")]
         public NavProduct getProductFiltered(string productCode)
         {
             ProductManager ProdManager = new ProductManager();

@@ -39,16 +39,6 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         
         private System.Threading.SendOrPostCallback GetRecIdFromKeyOperationCompleted;
         
-        private System.Threading.SendOrPostCallback CreateOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback CreateMultipleOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback UpdateOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback UpdateMultipleOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback DeleteOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,21 +91,6 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         
         /// <remarks/>
         public event GetRecIdFromKeyCompletedEventHandler GetRecIdFromKeyCompleted;
-        
-        /// <remarks/>
-        public event CreateCompletedEventHandler CreateCompleted;
-        
-        /// <remarks/>
-        public event CreateMultipleCompletedEventHandler CreateMultipleCompleted;
-        
-        /// <remarks/>
-        public event UpdateCompletedEventHandler UpdateCompleted;
-        
-        /// <remarks/>
-        public event UpdateMultipleCompletedEventHandler UpdateMultipleCompleted;
-        
-        /// <remarks/>
-        public event DeleteCompletedEventHandler DeleteCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/page/salesitems:Read", RequestNamespace="urn:microsoft-dynamics-schemas/page/salesitems", ResponseElementName="Read_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/page/salesitems", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -273,152 +248,6 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/page/salesitems:Create", RequestNamespace="urn:microsoft-dynamics-schemas/page/salesitems", ResponseElementName="Create_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/page/salesitems", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Create(ref SalesItems SalesItems) {
-            object[] results = this.Invoke("Create", new object[] {
-                        SalesItems});
-            SalesItems = ((SalesItems)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void CreateAsync(SalesItems SalesItems) {
-            this.CreateAsync(SalesItems, null);
-        }
-        
-        /// <remarks/>
-        public void CreateAsync(SalesItems SalesItems, object userState) {
-            if ((this.CreateOperationCompleted == null)) {
-                this.CreateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateOperationCompleted);
-            }
-            this.InvokeAsync("Create", new object[] {
-                        SalesItems}, this.CreateOperationCompleted, userState);
-        }
-        
-        private void OnCreateOperationCompleted(object arg) {
-            if ((this.CreateCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CreateCompleted(this, new CreateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/page/salesitems:CreateMultiple", RequestNamespace="urn:microsoft-dynamics-schemas/page/salesitems", ResponseElementName="CreateMultiple_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/page/salesitems", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void CreateMultiple([System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)] ref SalesItems[] SalesItems_List) {
-            object[] results = this.Invoke("CreateMultiple", new object[] {
-                        SalesItems_List});
-            SalesItems_List = ((SalesItems[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void CreateMultipleAsync(SalesItems[] SalesItems_List) {
-            this.CreateMultipleAsync(SalesItems_List, null);
-        }
-        
-        /// <remarks/>
-        public void CreateMultipleAsync(SalesItems[] SalesItems_List, object userState) {
-            if ((this.CreateMultipleOperationCompleted == null)) {
-                this.CreateMultipleOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateMultipleOperationCompleted);
-            }
-            this.InvokeAsync("CreateMultiple", new object[] {
-                        SalesItems_List}, this.CreateMultipleOperationCompleted, userState);
-        }
-        
-        private void OnCreateMultipleOperationCompleted(object arg) {
-            if ((this.CreateMultipleCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CreateMultipleCompleted(this, new CreateMultipleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/page/salesitems:Update", RequestNamespace="urn:microsoft-dynamics-schemas/page/salesitems", ResponseElementName="Update_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/page/salesitems", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Update(ref SalesItems SalesItems) {
-            object[] results = this.Invoke("Update", new object[] {
-                        SalesItems});
-            SalesItems = ((SalesItems)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void UpdateAsync(SalesItems SalesItems) {
-            this.UpdateAsync(SalesItems, null);
-        }
-        
-        /// <remarks/>
-        public void UpdateAsync(SalesItems SalesItems, object userState) {
-            if ((this.UpdateOperationCompleted == null)) {
-                this.UpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateOperationCompleted);
-            }
-            this.InvokeAsync("Update", new object[] {
-                        SalesItems}, this.UpdateOperationCompleted, userState);
-        }
-        
-        private void OnUpdateOperationCompleted(object arg) {
-            if ((this.UpdateCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateCompleted(this, new UpdateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/page/salesitems:UpdateMultiple", RequestNamespace="urn:microsoft-dynamics-schemas/page/salesitems", ResponseElementName="UpdateMultiple_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/page/salesitems", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void UpdateMultiple([System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)] ref SalesItems[] SalesItems_List) {
-            object[] results = this.Invoke("UpdateMultiple", new object[] {
-                        SalesItems_List});
-            SalesItems_List = ((SalesItems[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void UpdateMultipleAsync(SalesItems[] SalesItems_List) {
-            this.UpdateMultipleAsync(SalesItems_List, null);
-        }
-        
-        /// <remarks/>
-        public void UpdateMultipleAsync(SalesItems[] SalesItems_List, object userState) {
-            if ((this.UpdateMultipleOperationCompleted == null)) {
-                this.UpdateMultipleOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateMultipleOperationCompleted);
-            }
-            this.InvokeAsync("UpdateMultiple", new object[] {
-                        SalesItems_List}, this.UpdateMultipleOperationCompleted, userState);
-        }
-        
-        private void OnUpdateMultipleOperationCompleted(object arg) {
-            if ((this.UpdateMultipleCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateMultipleCompleted(this, new UpdateMultipleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/page/salesitems:Delete", RequestNamespace="urn:microsoft-dynamics-schemas/page/salesitems", ResponseElementName="Delete_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/page/salesitems", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("Delete_Result")]
-        public bool Delete(string Key) {
-            object[] results = this.Invoke("Delete", new object[] {
-                        Key});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void DeleteAsync(string Key) {
-            this.DeleteAsync(Key, null);
-        }
-        
-        /// <remarks/>
-        public void DeleteAsync(string Key, object userState) {
-            if ((this.DeleteOperationCompleted == null)) {
-                this.DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteOperationCompleted);
-            }
-            this.InvokeAsync("Delete", new object[] {
-                        Key}, this.DeleteOperationCompleted, userState);
-        }
-        
-        private void OnDeleteOperationCompleted(object arg) {
-            if ((this.DeleteCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.DeleteCompleted(this, new DeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -449,363 +278,55 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         
         private string noField;
         
+        private string no_2Field;
+        
         private string descriptionField;
+        
+        private string description_2Field;
         
         private string base_Unit_of_MeasureField;
         
-        private string packField;
-        
-        private bool assembly_BOMField;
-        
-        private bool assembly_BOMFieldSpecified;
-        
-        private string shelf_NoField;
-        
-        private bool automatic_Ext_TextsField;
-        
-        private bool automatic_Ext_TextsFieldSpecified;
-        
-        private bool created_From_Nonstock_ItemField;
-        
-        private bool created_From_Nonstock_ItemFieldSpecified;
-        
-        private string item_Category_CodeField;
-        
-        private bool excise_DutyField;
-        
-        private bool excise_DutyFieldSpecified;
-        
-        private string product_Group_CodeField;
-        
-        private string service_Item_GroupField;
-        
-        private string search_DescriptionField;
-        
-        private decimal inventoryField;
-        
-        private bool inventoryFieldSpecified;
-        
-        private bool auxiliary_ItemField;
-        
-        private bool auxiliary_ItemFieldSpecified;
-        
-        private bool chip_NeckField;
-        
-        private bool chip_NeckFieldSpecified;
-        
-        private decimal qty_on_Purch_OrderField;
-        
-        private bool qty_on_Purch_OrderFieldSpecified;
-        
-        private decimal qty_on_Prod_OrderField;
-        
-        private bool qty_on_Prod_OrderFieldSpecified;
-        
-        private decimal qty_on_Component_LinesField;
-        
-        private bool qty_on_Component_LinesFieldSpecified;
-        
-        private decimal qty_on_Sales_OrderField;
-        
-        private bool qty_on_Sales_OrderFieldSpecified;
-        
-        private decimal qty_on_Service_OrderField;
-        
-        private bool qty_on_Service_OrderFieldSpecified;
-        
-        private decimal qty_on_Job_OrderField;
-        
-        private bool qty_on_Job_OrderFieldSpecified;
-        
-        private decimal qty_on_Assembly_OrderField;
-        
-        private bool qty_on_Assembly_OrderFieldSpecified;
-        
-        private decimal qty_on_Asm_ComponentField;
-        
-        private bool qty_on_Asm_ComponentFieldSpecified;
-        
-        private bool blockedField;
-        
-        private bool blockedFieldSpecified;
-        
-        private Item_Type item_TypeField;
-        
-        private bool item_TypeFieldSpecified;
-        
-        private System.DateTime last_Date_ModifiedField;
-        
-        private bool last_Date_ModifiedFieldSpecified;
-        
-        private bool sales_ItemField;
-        
-        private bool sales_ItemFieldSpecified;
-        
-        private bool finished_ProductField;
-        
-        private bool finished_ProductFieldSpecified;
-        
-        private bool empty_BottleField;
-        
-        private bool empty_BottleFieldSpecified;
-        
-        private bool empty_CrateField;
-        
-        private bool empty_CrateFieldSpecified;
-        
-        private StockoutWarningDefaultYes stockoutWarningDefaultYesField;
-        
-        private bool stockoutWarningDefaultYesFieldSpecified;
-        
-        private PreventNegInventoryDefaultYes preventNegInventoryDefaultYesField;
-        
-        private bool preventNegInventoryDefaultYesFieldSpecified;
-        
-        private Costing_Method costing_MethodField;
-        
-        private bool costing_MethodFieldSpecified;
-        
-        private bool cost_is_AdjustedField;
-        
-        private bool cost_is_AdjustedFieldSpecified;
-        
-        private bool cost_is_Posted_to_G_LField;
-        
-        private bool cost_is_Posted_to_G_LFieldSpecified;
-        
-        private decimal standard_CostField;
-        
-        private bool standard_CostFieldSpecified;
-        
-        private decimal unit_CostField;
-        
-        private bool unit_CostFieldSpecified;
-        
-        private decimal overhead_RateField;
-        
-        private bool overhead_RateFieldSpecified;
-        
-        private decimal indirect_Cost_PercentField;
-        
-        private bool indirect_Cost_PercentFieldSpecified;
-        
-        private decimal last_Direct_CostField;
-        
-        private bool last_Direct_CostFieldSpecified;
-        
-        private Price_Profit_Calculation price_Profit_CalculationField;
-        
-        private bool price_Profit_CalculationFieldSpecified;
-        
-        private decimal profit_PercentField;
-        
-        private bool profit_PercentFieldSpecified;
+        private string inventory_Posting_GroupField;
         
         private decimal unit_PriceField;
         
         private bool unit_PriceFieldSpecified;
         
-        private string gen_Prod_Posting_GroupField;
+        private decimal price_AField;
         
-        private string vAT_Prod_Posting_GroupField;
+        private bool price_AFieldSpecified;
         
-        private string inventory_Posting_GroupField;
+        private decimal price_BField;
         
-        private string budget_GL_Account_NoField;
+        private bool price_BFieldSpecified;
         
-        private decimal net_Invoiced_QtyField;
+        private decimal price_CField;
         
-        private bool net_Invoiced_QtyFieldSpecified;
+        private bool price_CFieldSpecified;
         
-        private bool allow_Invoice_DiscField;
+        private decimal unit_CostField;
         
-        private bool allow_Invoice_DiscFieldSpecified;
-        
-        private string item_Disc_GroupField;
-        
-        private string sales_Unit_of_MeasureField;
-        
-        private string application_Wksh_User_IDField;
-        
-        private Replenishment_System replenishment_SystemField;
-        
-        private bool replenishment_SystemFieldSpecified;
-        
-        private string lead_Time_CalculationField;
+        private bool unit_CostFieldSpecified;
         
         private string vendor_NoField;
         
         private string vendor_Item_NoField;
         
-        private string purch_Unit_of_MeasureField;
+        private bool blockedField;
         
-        private Manufacturing_Policy manufacturing_PolicyField;
+        private bool blockedFieldSpecified;
         
-        private bool manufacturing_PolicyFieldSpecified;
+        private System.DateTime last_Date_ModifiedField;
         
-        private string routing_NoField;
+        private bool last_Date_ModifiedFieldSpecified;
         
-        private string production_BOM_NoField;
+        private string vAT_Bus_Posting_Gr_PriceField;
         
-        private decimal rounding_PrecisionField;
+        private string item_Category_CodeField;
         
-        private bool rounding_PrecisionFieldSpecified;
+        private string familyField;
         
-        private Flushing_Method flushing_MethodField;
-        
-        private bool flushing_MethodFieldSpecified;
-        
-        private decimal scrap_PercentField;
-        
-        private bool scrap_PercentFieldSpecified;
-        
-        private decimal lot_SizeField;
-        
-        private bool lot_SizeFieldSpecified;
-        
-        private decimal unit_CaseField;
-        
-        private bool unit_CaseFieldSpecified;
-        
-        private decimal physical_CaseField;
-        
-        private bool physical_CaseFieldSpecified;
-        
-        private decimal volume_in_MlField;
-        
-        private bool volume_in_MlFieldSpecified;
-        
-        private decimal unit_VolumeField;
-        
-        private bool unit_VolumeFieldSpecified;
-        
-        private int no_of_PCS_in_a_CaseField;
-        
-        private bool no_of_PCS_in_a_CaseFieldSpecified;
-        
-        private Assembly_Policy assembly_PolicyField;
-        
-        private bool assembly_PolicyFieldSpecified;
-        
-        private Reordering_Policy reordering_PolicyField;
-        
-        private bool reordering_PolicyFieldSpecified;
-        
-        private Reserve reserveField;
-        
-        private bool reserveFieldSpecified;
-        
-        private Order_Tracking_Policy order_Tracking_PolicyField;
-        
-        private bool order_Tracking_PolicyFieldSpecified;
-        
-        private bool stockkeeping_Unit_ExistsField;
-        
-        private bool stockkeeping_Unit_ExistsFieldSpecified;
-        
-        private string dampener_PeriodField;
-        
-        private decimal dampener_QuantityField;
-        
-        private bool dampener_QuantityFieldSpecified;
-        
-        private bool criticalField;
-        
-        private bool criticalFieldSpecified;
-        
-        private string safety_Lead_TimeField;
-        
-        private decimal safety_Stock_QuantityField;
-        
-        private bool safety_Stock_QuantityFieldSpecified;
-        
-        private bool include_InventoryField;
-        
-        private bool include_InventoryFieldSpecified;
-        
-        private string lot_Accumulation_PeriodField;
-        
-        private string rescheduling_PeriodField;
-        
-        private decimal reorder_PointField;
-        
-        private bool reorder_PointFieldSpecified;
-        
-        private decimal reorder_QuantityField;
-        
-        private bool reorder_QuantityFieldSpecified;
-        
-        private decimal maximum_InventoryField;
-        
-        private bool maximum_InventoryFieldSpecified;
-        
-        private decimal overflow_LevelField;
-        
-        private bool overflow_LevelFieldSpecified;
-        
-        private string time_BucketField;
-        
-        private decimal minimum_Order_QuantityField;
-        
-        private bool minimum_Order_QuantityFieldSpecified;
-        
-        private decimal maximum_Order_QuantityField;
-        
-        private bool maximum_Order_QuantityFieldSpecified;
-        
-        private decimal order_MultipleField;
-        
-        private bool order_MultipleFieldSpecified;
-        
-        private string tariff_NoField;
-        
-        private string country_Region_of_Origin_CodeField;
-        
-        private decimal net_WeightField;
-        
-        private bool net_WeightFieldSpecified;
-        
-        private decimal gross_WeightField;
-        
-        private bool gross_WeightFieldSpecified;
-        
-        private string item_Tracking_CodeField;
-        
-        private string serial_NosField;
-        
-        private string lot_NosField;
-        
-        private string expiration_CalculationField;
-        
-        private string special_Equipment_CodeField;
-        
-        private string put_away_Template_CodeField;
-        
-        private string put_away_Unit_of_Measure_CodeField;
-        
-        private string phys_Invt_Counting_Period_CodeField;
-        
-        private System.DateTime last_Phys_Invt_DateField;
-        
-        private bool last_Phys_Invt_DateFieldSpecified;
-        
-        private System.DateTime last_Counting_Period_UpdateField;
-        
-        private bool last_Counting_Period_UpdateFieldSpecified;
-        
-        private System.DateTime next_Counting_Start_DateField;
-        
-        private bool next_Counting_Start_DateFieldSpecified;
-        
-        private System.DateTime next_Counting_End_DateField;
-        
-        private bool next_Counting_End_DateFieldSpecified;
-        
-        private string identifier_CodeField;
-        
-        private bool use_Cross_DockingField;
-        
-        private bool use_Cross_DockingFieldSpecified;
+        private string packField;
         
         /// <remarks/>
         public string Key {
@@ -828,12 +349,32 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         }
         
         /// <remarks/>
+        public string No_2 {
+            get {
+                return this.no_2Field;
+            }
+            set {
+                this.no_2Field = value;
+            }
+        }
+        
+        /// <remarks/>
         public string Description {
             get {
                 return this.descriptionField;
             }
             set {
                 this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Description_2 {
+            get {
+                return this.description_2Field;
+            }
+            set {
+                this.description_2Field = value;
             }
         }
         
@@ -848,377 +389,137 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         }
         
         /// <remarks/>
-        public string Pack {
+        public string Inventory_Posting_Group {
             get {
-                return this.packField;
+                return this.inventory_Posting_GroupField;
             }
             set {
-                this.packField = value;
+                this.inventory_Posting_GroupField = value;
             }
         }
         
         /// <remarks/>
-        public bool Assembly_BOM {
+        public decimal Unit_Price {
             get {
-                return this.assembly_BOMField;
+                return this.unit_PriceField;
             }
             set {
-                this.assembly_BOMField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Assembly_BOMSpecified {
-            get {
-                return this.assembly_BOMFieldSpecified;
-            }
-            set {
-                this.assembly_BOMFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Shelf_No {
-            get {
-                return this.shelf_NoField;
-            }
-            set {
-                this.shelf_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Automatic_Ext_Texts {
-            get {
-                return this.automatic_Ext_TextsField;
-            }
-            set {
-                this.automatic_Ext_TextsField = value;
+                this.unit_PriceField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Automatic_Ext_TextsSpecified {
+        public bool Unit_PriceSpecified {
             get {
-                return this.automatic_Ext_TextsFieldSpecified;
+                return this.unit_PriceFieldSpecified;
             }
             set {
-                this.automatic_Ext_TextsFieldSpecified = value;
+                this.unit_PriceFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public bool Created_From_Nonstock_Item {
+        public decimal Price_A {
             get {
-                return this.created_From_Nonstock_ItemField;
+                return this.price_AField;
             }
             set {
-                this.created_From_Nonstock_ItemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Created_From_Nonstock_ItemSpecified {
-            get {
-                return this.created_From_Nonstock_ItemFieldSpecified;
-            }
-            set {
-                this.created_From_Nonstock_ItemFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Item_Category_Code {
-            get {
-                return this.item_Category_CodeField;
-            }
-            set {
-                this.item_Category_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Excise_Duty {
-            get {
-                return this.excise_DutyField;
-            }
-            set {
-                this.excise_DutyField = value;
+                this.price_AField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Excise_DutySpecified {
+        public bool Price_ASpecified {
             get {
-                return this.excise_DutyFieldSpecified;
+                return this.price_AFieldSpecified;
             }
             set {
-                this.excise_DutyFieldSpecified = value;
+                this.price_AFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public string Product_Group_Code {
+        public decimal Price_B {
             get {
-                return this.product_Group_CodeField;
+                return this.price_BField;
             }
             set {
-                this.product_Group_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Service_Item_Group {
-            get {
-                return this.service_Item_GroupField;
-            }
-            set {
-                this.service_Item_GroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Search_Description {
-            get {
-                return this.search_DescriptionField;
-            }
-            set {
-                this.search_DescriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Inventory {
-            get {
-                return this.inventoryField;
-            }
-            set {
-                this.inventoryField = value;
+                this.price_BField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool InventorySpecified {
+        public bool Price_BSpecified {
             get {
-                return this.inventoryFieldSpecified;
+                return this.price_BFieldSpecified;
             }
             set {
-                this.inventoryFieldSpecified = value;
+                this.price_BFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public bool Auxiliary_Item {
+        public decimal Price_C {
             get {
-                return this.auxiliary_ItemField;
+                return this.price_CField;
             }
             set {
-                this.auxiliary_ItemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Auxiliary_ItemSpecified {
-            get {
-                return this.auxiliary_ItemFieldSpecified;
-            }
-            set {
-                this.auxiliary_ItemFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Chip_Neck {
-            get {
-                return this.chip_NeckField;
-            }
-            set {
-                this.chip_NeckField = value;
+                this.price_CField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Chip_NeckSpecified {
+        public bool Price_CSpecified {
             get {
-                return this.chip_NeckFieldSpecified;
+                return this.price_CFieldSpecified;
             }
             set {
-                this.chip_NeckFieldSpecified = value;
+                this.price_CFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public decimal Qty_on_Purch_Order {
+        public decimal Unit_Cost {
             get {
-                return this.qty_on_Purch_OrderField;
+                return this.unit_CostField;
             }
             set {
-                this.qty_on_Purch_OrderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Purch_OrderSpecified {
-            get {
-                return this.qty_on_Purch_OrderFieldSpecified;
-            }
-            set {
-                this.qty_on_Purch_OrderFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty_on_Prod_Order {
-            get {
-                return this.qty_on_Prod_OrderField;
-            }
-            set {
-                this.qty_on_Prod_OrderField = value;
+                this.unit_CostField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Prod_OrderSpecified {
+        public bool Unit_CostSpecified {
             get {
-                return this.qty_on_Prod_OrderFieldSpecified;
+                return this.unit_CostFieldSpecified;
             }
             set {
-                this.qty_on_Prod_OrderFieldSpecified = value;
+                this.unit_CostFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public decimal Qty_on_Component_Lines {
+        public string Vendor_No {
             get {
-                return this.qty_on_Component_LinesField;
+                return this.vendor_NoField;
             }
             set {
-                this.qty_on_Component_LinesField = value;
+                this.vendor_NoField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Component_LinesSpecified {
+        public string Vendor_Item_No {
             get {
-                return this.qty_on_Component_LinesFieldSpecified;
+                return this.vendor_Item_NoField;
             }
             set {
-                this.qty_on_Component_LinesFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty_on_Sales_Order {
-            get {
-                return this.qty_on_Sales_OrderField;
-            }
-            set {
-                this.qty_on_Sales_OrderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Sales_OrderSpecified {
-            get {
-                return this.qty_on_Sales_OrderFieldSpecified;
-            }
-            set {
-                this.qty_on_Sales_OrderFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty_on_Service_Order {
-            get {
-                return this.qty_on_Service_OrderField;
-            }
-            set {
-                this.qty_on_Service_OrderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Service_OrderSpecified {
-            get {
-                return this.qty_on_Service_OrderFieldSpecified;
-            }
-            set {
-                this.qty_on_Service_OrderFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty_on_Job_Order {
-            get {
-                return this.qty_on_Job_OrderField;
-            }
-            set {
-                this.qty_on_Job_OrderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Job_OrderSpecified {
-            get {
-                return this.qty_on_Job_OrderFieldSpecified;
-            }
-            set {
-                this.qty_on_Job_OrderFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty_on_Assembly_Order {
-            get {
-                return this.qty_on_Assembly_OrderField;
-            }
-            set {
-                this.qty_on_Assembly_OrderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Assembly_OrderSpecified {
-            get {
-                return this.qty_on_Assembly_OrderFieldSpecified;
-            }
-            set {
-                this.qty_on_Assembly_OrderFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty_on_Asm_Component {
-            get {
-                return this.qty_on_Asm_ComponentField;
-            }
-            set {
-                this.qty_on_Asm_ComponentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Qty_on_Asm_ComponentSpecified {
-            get {
-                return this.qty_on_Asm_ComponentFieldSpecified;
-            }
-            set {
-                this.qty_on_Asm_ComponentFieldSpecified = value;
+                this.vendor_Item_NoField = value;
             }
         }
         
@@ -1240,27 +541,6 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
             }
             set {
                 this.blockedFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Item_Type Item_Type {
-            get {
-                return this.item_TypeField;
-            }
-            set {
-                this.item_TypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Item_TypeSpecified {
-            get {
-                return this.item_TypeFieldSpecified;
-            }
-            set {
-                this.item_TypeFieldSpecified = value;
             }
         }
         
@@ -1287,1618 +567,44 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         }
         
         /// <remarks/>
-        public bool Sales_Item {
+        public string VAT_Bus_Posting_Gr_Price {
             get {
-                return this.sales_ItemField;
+                return this.vAT_Bus_Posting_Gr_PriceField;
             }
             set {
-                this.sales_ItemField = value;
+                this.vAT_Bus_Posting_Gr_PriceField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Sales_ItemSpecified {
+        public string Item_Category_Code {
             get {
-                return this.sales_ItemFieldSpecified;
+                return this.item_Category_CodeField;
             }
             set {
-                this.sales_ItemFieldSpecified = value;
+                this.item_Category_CodeField = value;
             }
         }
         
         /// <remarks/>
-        public bool Finished_Product {
+        public string Family {
             get {
-                return this.finished_ProductField;
+                return this.familyField;
             }
             set {
-                this.finished_ProductField = value;
+                this.familyField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Finished_ProductSpecified {
+        public string Pack {
             get {
-                return this.finished_ProductFieldSpecified;
+                return this.packField;
             }
             set {
-                this.finished_ProductFieldSpecified = value;
+                this.packField = value;
             }
         }
-        
-        /// <remarks/>
-        public bool Empty_Bottle {
-            get {
-                return this.empty_BottleField;
-            }
-            set {
-                this.empty_BottleField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Empty_BottleSpecified {
-            get {
-                return this.empty_BottleFieldSpecified;
-            }
-            set {
-                this.empty_BottleFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Empty_Crate {
-            get {
-                return this.empty_CrateField;
-            }
-            set {
-                this.empty_CrateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Empty_CrateSpecified {
-            get {
-                return this.empty_CrateFieldSpecified;
-            }
-            set {
-                this.empty_CrateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public StockoutWarningDefaultYes StockoutWarningDefaultYes {
-            get {
-                return this.stockoutWarningDefaultYesField;
-            }
-            set {
-                this.stockoutWarningDefaultYesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool StockoutWarningDefaultYesSpecified {
-            get {
-                return this.stockoutWarningDefaultYesFieldSpecified;
-            }
-            set {
-                this.stockoutWarningDefaultYesFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PreventNegInventoryDefaultYes PreventNegInventoryDefaultYes {
-            get {
-                return this.preventNegInventoryDefaultYesField;
-            }
-            set {
-                this.preventNegInventoryDefaultYesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PreventNegInventoryDefaultYesSpecified {
-            get {
-                return this.preventNegInventoryDefaultYesFieldSpecified;
-            }
-            set {
-                this.preventNegInventoryDefaultYesFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Costing_Method Costing_Method {
-            get {
-                return this.costing_MethodField;
-            }
-            set {
-                this.costing_MethodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Costing_MethodSpecified {
-            get {
-                return this.costing_MethodFieldSpecified;
-            }
-            set {
-                this.costing_MethodFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Cost_is_Adjusted {
-            get {
-                return this.cost_is_AdjustedField;
-            }
-            set {
-                this.cost_is_AdjustedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Cost_is_AdjustedSpecified {
-            get {
-                return this.cost_is_AdjustedFieldSpecified;
-            }
-            set {
-                this.cost_is_AdjustedFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Cost_is_Posted_to_G_L {
-            get {
-                return this.cost_is_Posted_to_G_LField;
-            }
-            set {
-                this.cost_is_Posted_to_G_LField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Cost_is_Posted_to_G_LSpecified {
-            get {
-                return this.cost_is_Posted_to_G_LFieldSpecified;
-            }
-            set {
-                this.cost_is_Posted_to_G_LFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Standard_Cost {
-            get {
-                return this.standard_CostField;
-            }
-            set {
-                this.standard_CostField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Standard_CostSpecified {
-            get {
-                return this.standard_CostFieldSpecified;
-            }
-            set {
-                this.standard_CostFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Unit_Cost {
-            get {
-                return this.unit_CostField;
-            }
-            set {
-                this.unit_CostField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Unit_CostSpecified {
-            get {
-                return this.unit_CostFieldSpecified;
-            }
-            set {
-                this.unit_CostFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Overhead_Rate {
-            get {
-                return this.overhead_RateField;
-            }
-            set {
-                this.overhead_RateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Overhead_RateSpecified {
-            get {
-                return this.overhead_RateFieldSpecified;
-            }
-            set {
-                this.overhead_RateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Indirect_Cost_Percent {
-            get {
-                return this.indirect_Cost_PercentField;
-            }
-            set {
-                this.indirect_Cost_PercentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Indirect_Cost_PercentSpecified {
-            get {
-                return this.indirect_Cost_PercentFieldSpecified;
-            }
-            set {
-                this.indirect_Cost_PercentFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Last_Direct_Cost {
-            get {
-                return this.last_Direct_CostField;
-            }
-            set {
-                this.last_Direct_CostField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Last_Direct_CostSpecified {
-            get {
-                return this.last_Direct_CostFieldSpecified;
-            }
-            set {
-                this.last_Direct_CostFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Price_Profit_Calculation Price_Profit_Calculation {
-            get {
-                return this.price_Profit_CalculationField;
-            }
-            set {
-                this.price_Profit_CalculationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Price_Profit_CalculationSpecified {
-            get {
-                return this.price_Profit_CalculationFieldSpecified;
-            }
-            set {
-                this.price_Profit_CalculationFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Profit_Percent {
-            get {
-                return this.profit_PercentField;
-            }
-            set {
-                this.profit_PercentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Profit_PercentSpecified {
-            get {
-                return this.profit_PercentFieldSpecified;
-            }
-            set {
-                this.profit_PercentFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Unit_Price {
-            get {
-                return this.unit_PriceField;
-            }
-            set {
-                this.unit_PriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Unit_PriceSpecified {
-            get {
-                return this.unit_PriceFieldSpecified;
-            }
-            set {
-                this.unit_PriceFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Gen_Prod_Posting_Group {
-            get {
-                return this.gen_Prod_Posting_GroupField;
-            }
-            set {
-                this.gen_Prod_Posting_GroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string VAT_Prod_Posting_Group {
-            get {
-                return this.vAT_Prod_Posting_GroupField;
-            }
-            set {
-                this.vAT_Prod_Posting_GroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Inventory_Posting_Group {
-            get {
-                return this.inventory_Posting_GroupField;
-            }
-            set {
-                this.inventory_Posting_GroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Budget_GL_Account_No {
-            get {
-                return this.budget_GL_Account_NoField;
-            }
-            set {
-                this.budget_GL_Account_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Net_Invoiced_Qty {
-            get {
-                return this.net_Invoiced_QtyField;
-            }
-            set {
-                this.net_Invoiced_QtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Net_Invoiced_QtySpecified {
-            get {
-                return this.net_Invoiced_QtyFieldSpecified;
-            }
-            set {
-                this.net_Invoiced_QtyFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Allow_Invoice_Disc {
-            get {
-                return this.allow_Invoice_DiscField;
-            }
-            set {
-                this.allow_Invoice_DiscField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Allow_Invoice_DiscSpecified {
-            get {
-                return this.allow_Invoice_DiscFieldSpecified;
-            }
-            set {
-                this.allow_Invoice_DiscFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Item_Disc_Group {
-            get {
-                return this.item_Disc_GroupField;
-            }
-            set {
-                this.item_Disc_GroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Sales_Unit_of_Measure {
-            get {
-                return this.sales_Unit_of_MeasureField;
-            }
-            set {
-                this.sales_Unit_of_MeasureField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Application_Wksh_User_ID {
-            get {
-                return this.application_Wksh_User_IDField;
-            }
-            set {
-                this.application_Wksh_User_IDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Replenishment_System Replenishment_System {
-            get {
-                return this.replenishment_SystemField;
-            }
-            set {
-                this.replenishment_SystemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Replenishment_SystemSpecified {
-            get {
-                return this.replenishment_SystemFieldSpecified;
-            }
-            set {
-                this.replenishment_SystemFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Lead_Time_Calculation {
-            get {
-                return this.lead_Time_CalculationField;
-            }
-            set {
-                this.lead_Time_CalculationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Vendor_No {
-            get {
-                return this.vendor_NoField;
-            }
-            set {
-                this.vendor_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Vendor_Item_No {
-            get {
-                return this.vendor_Item_NoField;
-            }
-            set {
-                this.vendor_Item_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Purch_Unit_of_Measure {
-            get {
-                return this.purch_Unit_of_MeasureField;
-            }
-            set {
-                this.purch_Unit_of_MeasureField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Manufacturing_Policy Manufacturing_Policy {
-            get {
-                return this.manufacturing_PolicyField;
-            }
-            set {
-                this.manufacturing_PolicyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Manufacturing_PolicySpecified {
-            get {
-                return this.manufacturing_PolicyFieldSpecified;
-            }
-            set {
-                this.manufacturing_PolicyFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Routing_No {
-            get {
-                return this.routing_NoField;
-            }
-            set {
-                this.routing_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Production_BOM_No {
-            get {
-                return this.production_BOM_NoField;
-            }
-            set {
-                this.production_BOM_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Rounding_Precision {
-            get {
-                return this.rounding_PrecisionField;
-            }
-            set {
-                this.rounding_PrecisionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Rounding_PrecisionSpecified {
-            get {
-                return this.rounding_PrecisionFieldSpecified;
-            }
-            set {
-                this.rounding_PrecisionFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Flushing_Method Flushing_Method {
-            get {
-                return this.flushing_MethodField;
-            }
-            set {
-                this.flushing_MethodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Flushing_MethodSpecified {
-            get {
-                return this.flushing_MethodFieldSpecified;
-            }
-            set {
-                this.flushing_MethodFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Scrap_Percent {
-            get {
-                return this.scrap_PercentField;
-            }
-            set {
-                this.scrap_PercentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Scrap_PercentSpecified {
-            get {
-                return this.scrap_PercentFieldSpecified;
-            }
-            set {
-                this.scrap_PercentFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Lot_Size {
-            get {
-                return this.lot_SizeField;
-            }
-            set {
-                this.lot_SizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Lot_SizeSpecified {
-            get {
-                return this.lot_SizeFieldSpecified;
-            }
-            set {
-                this.lot_SizeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Unit_Case {
-            get {
-                return this.unit_CaseField;
-            }
-            set {
-                this.unit_CaseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Unit_CaseSpecified {
-            get {
-                return this.unit_CaseFieldSpecified;
-            }
-            set {
-                this.unit_CaseFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Physical_Case {
-            get {
-                return this.physical_CaseField;
-            }
-            set {
-                this.physical_CaseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Physical_CaseSpecified {
-            get {
-                return this.physical_CaseFieldSpecified;
-            }
-            set {
-                this.physical_CaseFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Volume_in_Ml {
-            get {
-                return this.volume_in_MlField;
-            }
-            set {
-                this.volume_in_MlField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Volume_in_MlSpecified {
-            get {
-                return this.volume_in_MlFieldSpecified;
-            }
-            set {
-                this.volume_in_MlFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Unit_Volume {
-            get {
-                return this.unit_VolumeField;
-            }
-            set {
-                this.unit_VolumeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Unit_VolumeSpecified {
-            get {
-                return this.unit_VolumeFieldSpecified;
-            }
-            set {
-                this.unit_VolumeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int No_of_PCS_in_a_Case {
-            get {
-                return this.no_of_PCS_in_a_CaseField;
-            }
-            set {
-                this.no_of_PCS_in_a_CaseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool No_of_PCS_in_a_CaseSpecified {
-            get {
-                return this.no_of_PCS_in_a_CaseFieldSpecified;
-            }
-            set {
-                this.no_of_PCS_in_a_CaseFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Assembly_Policy Assembly_Policy {
-            get {
-                return this.assembly_PolicyField;
-            }
-            set {
-                this.assembly_PolicyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Assembly_PolicySpecified {
-            get {
-                return this.assembly_PolicyFieldSpecified;
-            }
-            set {
-                this.assembly_PolicyFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Reordering_Policy Reordering_Policy {
-            get {
-                return this.reordering_PolicyField;
-            }
-            set {
-                this.reordering_PolicyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Reordering_PolicySpecified {
-            get {
-                return this.reordering_PolicyFieldSpecified;
-            }
-            set {
-                this.reordering_PolicyFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Reserve Reserve {
-            get {
-                return this.reserveField;
-            }
-            set {
-                this.reserveField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ReserveSpecified {
-            get {
-                return this.reserveFieldSpecified;
-            }
-            set {
-                this.reserveFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Order_Tracking_Policy Order_Tracking_Policy {
-            get {
-                return this.order_Tracking_PolicyField;
-            }
-            set {
-                this.order_Tracking_PolicyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Order_Tracking_PolicySpecified {
-            get {
-                return this.order_Tracking_PolicyFieldSpecified;
-            }
-            set {
-                this.order_Tracking_PolicyFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Stockkeeping_Unit_Exists {
-            get {
-                return this.stockkeeping_Unit_ExistsField;
-            }
-            set {
-                this.stockkeeping_Unit_ExistsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Stockkeeping_Unit_ExistsSpecified {
-            get {
-                return this.stockkeeping_Unit_ExistsFieldSpecified;
-            }
-            set {
-                this.stockkeeping_Unit_ExistsFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Dampener_Period {
-            get {
-                return this.dampener_PeriodField;
-            }
-            set {
-                this.dampener_PeriodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Dampener_Quantity {
-            get {
-                return this.dampener_QuantityField;
-            }
-            set {
-                this.dampener_QuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Dampener_QuantitySpecified {
-            get {
-                return this.dampener_QuantityFieldSpecified;
-            }
-            set {
-                this.dampener_QuantityFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Critical {
-            get {
-                return this.criticalField;
-            }
-            set {
-                this.criticalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool CriticalSpecified {
-            get {
-                return this.criticalFieldSpecified;
-            }
-            set {
-                this.criticalFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Safety_Lead_Time {
-            get {
-                return this.safety_Lead_TimeField;
-            }
-            set {
-                this.safety_Lead_TimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Safety_Stock_Quantity {
-            get {
-                return this.safety_Stock_QuantityField;
-            }
-            set {
-                this.safety_Stock_QuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Safety_Stock_QuantitySpecified {
-            get {
-                return this.safety_Stock_QuantityFieldSpecified;
-            }
-            set {
-                this.safety_Stock_QuantityFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Include_Inventory {
-            get {
-                return this.include_InventoryField;
-            }
-            set {
-                this.include_InventoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Include_InventorySpecified {
-            get {
-                return this.include_InventoryFieldSpecified;
-            }
-            set {
-                this.include_InventoryFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Lot_Accumulation_Period {
-            get {
-                return this.lot_Accumulation_PeriodField;
-            }
-            set {
-                this.lot_Accumulation_PeriodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Rescheduling_Period {
-            get {
-                return this.rescheduling_PeriodField;
-            }
-            set {
-                this.rescheduling_PeriodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Reorder_Point {
-            get {
-                return this.reorder_PointField;
-            }
-            set {
-                this.reorder_PointField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Reorder_PointSpecified {
-            get {
-                return this.reorder_PointFieldSpecified;
-            }
-            set {
-                this.reorder_PointFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Reorder_Quantity {
-            get {
-                return this.reorder_QuantityField;
-            }
-            set {
-                this.reorder_QuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Reorder_QuantitySpecified {
-            get {
-                return this.reorder_QuantityFieldSpecified;
-            }
-            set {
-                this.reorder_QuantityFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Maximum_Inventory {
-            get {
-                return this.maximum_InventoryField;
-            }
-            set {
-                this.maximum_InventoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Maximum_InventorySpecified {
-            get {
-                return this.maximum_InventoryFieldSpecified;
-            }
-            set {
-                this.maximum_InventoryFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Overflow_Level {
-            get {
-                return this.overflow_LevelField;
-            }
-            set {
-                this.overflow_LevelField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Overflow_LevelSpecified {
-            get {
-                return this.overflow_LevelFieldSpecified;
-            }
-            set {
-                this.overflow_LevelFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Time_Bucket {
-            get {
-                return this.time_BucketField;
-            }
-            set {
-                this.time_BucketField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Minimum_Order_Quantity {
-            get {
-                return this.minimum_Order_QuantityField;
-            }
-            set {
-                this.minimum_Order_QuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Minimum_Order_QuantitySpecified {
-            get {
-                return this.minimum_Order_QuantityFieldSpecified;
-            }
-            set {
-                this.minimum_Order_QuantityFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Maximum_Order_Quantity {
-            get {
-                return this.maximum_Order_QuantityField;
-            }
-            set {
-                this.maximum_Order_QuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Maximum_Order_QuantitySpecified {
-            get {
-                return this.maximum_Order_QuantityFieldSpecified;
-            }
-            set {
-                this.maximum_Order_QuantityFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Order_Multiple {
-            get {
-                return this.order_MultipleField;
-            }
-            set {
-                this.order_MultipleField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Order_MultipleSpecified {
-            get {
-                return this.order_MultipleFieldSpecified;
-            }
-            set {
-                this.order_MultipleFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Tariff_No {
-            get {
-                return this.tariff_NoField;
-            }
-            set {
-                this.tariff_NoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Country_Region_of_Origin_Code {
-            get {
-                return this.country_Region_of_Origin_CodeField;
-            }
-            set {
-                this.country_Region_of_Origin_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Net_Weight {
-            get {
-                return this.net_WeightField;
-            }
-            set {
-                this.net_WeightField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Net_WeightSpecified {
-            get {
-                return this.net_WeightFieldSpecified;
-            }
-            set {
-                this.net_WeightFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Gross_Weight {
-            get {
-                return this.gross_WeightField;
-            }
-            set {
-                this.gross_WeightField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Gross_WeightSpecified {
-            get {
-                return this.gross_WeightFieldSpecified;
-            }
-            set {
-                this.gross_WeightFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Item_Tracking_Code {
-            get {
-                return this.item_Tracking_CodeField;
-            }
-            set {
-                this.item_Tracking_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Serial_Nos {
-            get {
-                return this.serial_NosField;
-            }
-            set {
-                this.serial_NosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Lot_Nos {
-            get {
-                return this.lot_NosField;
-            }
-            set {
-                this.lot_NosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Expiration_Calculation {
-            get {
-                return this.expiration_CalculationField;
-            }
-            set {
-                this.expiration_CalculationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Special_Equipment_Code {
-            get {
-                return this.special_Equipment_CodeField;
-            }
-            set {
-                this.special_Equipment_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Put_away_Template_Code {
-            get {
-                return this.put_away_Template_CodeField;
-            }
-            set {
-                this.put_away_Template_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Put_away_Unit_of_Measure_Code {
-            get {
-                return this.put_away_Unit_of_Measure_CodeField;
-            }
-            set {
-                this.put_away_Unit_of_Measure_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Phys_Invt_Counting_Period_Code {
-            get {
-                return this.phys_Invt_Counting_Period_CodeField;
-            }
-            set {
-                this.phys_Invt_Counting_Period_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime Last_Phys_Invt_Date {
-            get {
-                return this.last_Phys_Invt_DateField;
-            }
-            set {
-                this.last_Phys_Invt_DateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Last_Phys_Invt_DateSpecified {
-            get {
-                return this.last_Phys_Invt_DateFieldSpecified;
-            }
-            set {
-                this.last_Phys_Invt_DateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime Last_Counting_Period_Update {
-            get {
-                return this.last_Counting_Period_UpdateField;
-            }
-            set {
-                this.last_Counting_Period_UpdateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Last_Counting_Period_UpdateSpecified {
-            get {
-                return this.last_Counting_Period_UpdateFieldSpecified;
-            }
-            set {
-                this.last_Counting_Period_UpdateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime Next_Counting_Start_Date {
-            get {
-                return this.next_Counting_Start_DateField;
-            }
-            set {
-                this.next_Counting_Start_DateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Next_Counting_Start_DateSpecified {
-            get {
-                return this.next_Counting_Start_DateFieldSpecified;
-            }
-            set {
-                this.next_Counting_Start_DateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime Next_Counting_End_Date {
-            get {
-                return this.next_Counting_End_DateField;
-            }
-            set {
-                this.next_Counting_End_DateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Next_Counting_End_DateSpecified {
-            get {
-                return this.next_Counting_End_DateFieldSpecified;
-            }
-            set {
-                this.next_Counting_End_DateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Identifier_Code {
-            get {
-                return this.identifier_CodeField;
-            }
-            set {
-                this.identifier_CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Use_Cross_Docking {
-            get {
-                return this.use_Cross_DockingField;
-            }
-            set {
-                this.use_Cross_DockingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Use_Cross_DockingSpecified {
-            get {
-                return this.use_Cross_DockingFieldSpecified;
-            }
-            set {
-                this.use_Cross_DockingFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Item_Type {
-        
-        /// <remarks/>
-        _blank_,
-        
-        /// <remarks/>
-        Finished_Product,
-        
-        /// <remarks/>
-        Empty_Bottle,
-        
-        /// <remarks/>
-        Empty_Crate,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum StockoutWarningDefaultYes {
-        
-        /// <remarks/>
-        Default,
-        
-        /// <remarks/>
-        No,
-        
-        /// <remarks/>
-        Yes,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum PreventNegInventoryDefaultYes {
-        
-        /// <remarks/>
-        Default,
-        
-        /// <remarks/>
-        No,
-        
-        /// <remarks/>
-        Yes,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Costing_Method {
-        
-        /// <remarks/>
-        FIFO,
-        
-        /// <remarks/>
-        LIFO,
-        
-        /// <remarks/>
-        Specific,
-        
-        /// <remarks/>
-        Average,
-        
-        /// <remarks/>
-        Standard,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Price_Profit_Calculation {
-        
-        /// <remarks/>
-        Profit_x003D_Price_Cost,
-        
-        /// <remarks/>
-        Price_x003D_Cost_x002B_Profit,
-        
-        /// <remarks/>
-        No_Relationship,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Replenishment_System {
-        
-        /// <remarks/>
-        Purchase,
-        
-        /// <remarks/>
-        Prod_Order,
-        
-        /// <remarks/>
-        Assembly,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Manufacturing_Policy {
-        
-        /// <remarks/>
-        Make_to_Stock,
-        
-        /// <remarks/>
-        Make_to_Order,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Flushing_Method {
-        
-        /// <remarks/>
-        Manual,
-        
-        /// <remarks/>
-        Forward,
-        
-        /// <remarks/>
-        Backward,
-        
-        /// <remarks/>
-        Pick__x002B__Forward,
-        
-        /// <remarks/>
-        Pick__x002B__Backward,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Assembly_Policy {
-        
-        /// <remarks/>
-        Assemble_to_Stock,
-        
-        /// <remarks/>
-        Assemble_to_Order,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Reordering_Policy {
-        
-        /// <remarks/>
-        _blank_,
-        
-        /// <remarks/>
-        Fixed_Reorder_Qty,
-        
-        /// <remarks/>
-        Maximum_Qty,
-        
-        /// <remarks/>
-        Order,
-        
-        /// <remarks/>
-        Lot_for_Lot,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Reserve {
-        
-        /// <remarks/>
-        Never,
-        
-        /// <remarks/>
-        Optional,
-        
-        /// <remarks/>
-        Always,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:microsoft-dynamics-schemas/page/salesitems")]
-    public enum Order_Tracking_Policy {
-        
-        /// <remarks/>
-        None,
-        
-        /// <remarks/>
-        Tracking_Only,
-        
-        /// <remarks/>
-        Tracking__x0026__Action_Msg,
     }
     
     /// <remarks/>
@@ -2944,166 +650,34 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         No,
         
         /// <remarks/>
+        No_2,
+        
+        /// <remarks/>
         Description,
+        
+        /// <remarks/>
+        Description_2,
         
         /// <remarks/>
         Base_Unit_of_Measure,
         
         /// <remarks/>
-        Pack,
-        
-        /// <remarks/>
-        Assembly_BOM,
-        
-        /// <remarks/>
-        Shelf_No,
-        
-        /// <remarks/>
-        Automatic_Ext_Texts,
-        
-        /// <remarks/>
-        Created_From_Nonstock_Item,
-        
-        /// <remarks/>
-        Item_Category_Code,
-        
-        /// <remarks/>
-        Excise_Duty,
-        
-        /// <remarks/>
-        Product_Group_Code,
-        
-        /// <remarks/>
-        Service_Item_Group,
-        
-        /// <remarks/>
-        Search_Description,
-        
-        /// <remarks/>
-        Inventory,
-        
-        /// <remarks/>
-        Auxiliary_Item,
-        
-        /// <remarks/>
-        Chip_Neck,
-        
-        /// <remarks/>
-        Qty_on_Purch_Order,
-        
-        /// <remarks/>
-        Qty_on_Prod_Order,
-        
-        /// <remarks/>
-        Qty_on_Component_Lines,
-        
-        /// <remarks/>
-        Qty_on_Sales_Order,
-        
-        /// <remarks/>
-        Qty_on_Service_Order,
-        
-        /// <remarks/>
-        Qty_on_Job_Order,
-        
-        /// <remarks/>
-        Qty_on_Assembly_Order,
-        
-        /// <remarks/>
-        Qty_on_Asm_Component,
-        
-        /// <remarks/>
-        Blocked,
-        
-        /// <remarks/>
-        Item_Type,
-        
-        /// <remarks/>
-        Last_Date_Modified,
-        
-        /// <remarks/>
-        Sales_Item,
-        
-        /// <remarks/>
-        Finished_Product,
-        
-        /// <remarks/>
-        Empty_Bottle,
-        
-        /// <remarks/>
-        Empty_Crate,
-        
-        /// <remarks/>
-        StockoutWarningDefaultYes,
-        
-        /// <remarks/>
-        PreventNegInventoryDefaultYes,
-        
-        /// <remarks/>
-        Costing_Method,
-        
-        /// <remarks/>
-        Cost_is_Adjusted,
-        
-        /// <remarks/>
-        Cost_is_Posted_to_G_L,
-        
-        /// <remarks/>
-        Standard_Cost,
-        
-        /// <remarks/>
-        Unit_Cost,
-        
-        /// <remarks/>
-        Overhead_Rate,
-        
-        /// <remarks/>
-        Indirect_Cost_Percent,
-        
-        /// <remarks/>
-        Last_Direct_Cost,
-        
-        /// <remarks/>
-        Price_Profit_Calculation,
-        
-        /// <remarks/>
-        Profit_Percent,
+        Inventory_Posting_Group,
         
         /// <remarks/>
         Unit_Price,
         
         /// <remarks/>
-        Gen_Prod_Posting_Group,
+        Price_A,
         
         /// <remarks/>
-        VAT_Prod_Posting_Group,
+        Price_B,
         
         /// <remarks/>
-        Inventory_Posting_Group,
+        Price_C,
         
         /// <remarks/>
-        Budget_GL_Account_No,
-        
-        /// <remarks/>
-        Net_Invoiced_Qty,
-        
-        /// <remarks/>
-        Allow_Invoice_Disc,
-        
-        /// <remarks/>
-        Item_Disc_Group,
-        
-        /// <remarks/>
-        Sales_Unit_of_Measure,
-        
-        /// <remarks/>
-        Application_Wksh_User_ID,
-        
-        /// <remarks/>
-        Replenishment_System,
-        
-        /// <remarks/>
-        Lead_Time_Calculation,
+        Unit_Cost,
         
         /// <remarks/>
         Vendor_No,
@@ -3112,160 +686,22 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
         Vendor_Item_No,
         
         /// <remarks/>
-        Purch_Unit_of_Measure,
+        Blocked,
         
         /// <remarks/>
-        Manufacturing_Policy,
+        Last_Date_Modified,
         
         /// <remarks/>
-        Routing_No,
+        VAT_Bus_Posting_Gr_Price,
         
         /// <remarks/>
-        Production_BOM_No,
+        Item_Category_Code,
         
         /// <remarks/>
-        Rounding_Precision,
+        Family,
         
         /// <remarks/>
-        Flushing_Method,
-        
-        /// <remarks/>
-        Scrap_Percent,
-        
-        /// <remarks/>
-        Lot_Size,
-        
-        /// <remarks/>
-        Unit_Case,
-        
-        /// <remarks/>
-        Physical_Case,
-        
-        /// <remarks/>
-        Volume_in_Ml,
-        
-        /// <remarks/>
-        Unit_Volume,
-        
-        /// <remarks/>
-        No_of_PCS_in_a_Case,
-        
-        /// <remarks/>
-        Assembly_Policy,
-        
-        /// <remarks/>
-        Reordering_Policy,
-        
-        /// <remarks/>
-        Reserve,
-        
-        /// <remarks/>
-        Order_Tracking_Policy,
-        
-        /// <remarks/>
-        Stockkeeping_Unit_Exists,
-        
-        /// <remarks/>
-        Dampener_Period,
-        
-        /// <remarks/>
-        Dampener_Quantity,
-        
-        /// <remarks/>
-        Critical,
-        
-        /// <remarks/>
-        Safety_Lead_Time,
-        
-        /// <remarks/>
-        Safety_Stock_Quantity,
-        
-        /// <remarks/>
-        Include_Inventory,
-        
-        /// <remarks/>
-        Lot_Accumulation_Period,
-        
-        /// <remarks/>
-        Rescheduling_Period,
-        
-        /// <remarks/>
-        Reorder_Point,
-        
-        /// <remarks/>
-        Reorder_Quantity,
-        
-        /// <remarks/>
-        Maximum_Inventory,
-        
-        /// <remarks/>
-        Overflow_Level,
-        
-        /// <remarks/>
-        Time_Bucket,
-        
-        /// <remarks/>
-        Minimum_Order_Quantity,
-        
-        /// <remarks/>
-        Maximum_Order_Quantity,
-        
-        /// <remarks/>
-        Order_Multiple,
-        
-        /// <remarks/>
-        Tariff_No,
-        
-        /// <remarks/>
-        Country_Region_of_Origin_Code,
-        
-        /// <remarks/>
-        Net_Weight,
-        
-        /// <remarks/>
-        Gross_Weight,
-        
-        /// <remarks/>
-        Item_Tracking_Code,
-        
-        /// <remarks/>
-        Serial_Nos,
-        
-        /// <remarks/>
-        Lot_Nos,
-        
-        /// <remarks/>
-        Expiration_Calculation,
-        
-        /// <remarks/>
-        Special_Equipment_Code,
-        
-        /// <remarks/>
-        Put_away_Template_Code,
-        
-        /// <remarks/>
-        Put_away_Unit_of_Measure_Code,
-        
-        /// <remarks/>
-        Phys_Invt_Counting_Period_Code,
-        
-        /// <remarks/>
-        Last_Phys_Invt_Date,
-        
-        /// <remarks/>
-        Last_Counting_Period_Update,
-        
-        /// <remarks/>
-        Next_Counting_Start_Date,
-        
-        /// <remarks/>
-        Next_Counting_End_Date,
-        
-        /// <remarks/>
-        Identifier_Code,
-        
-        /// <remarks/>
-        Use_Cross_Docking,
+        Pack,
     }
     
     /// <remarks/>
@@ -3394,136 +830,6 @@ namespace NAVSCMIntegrator.SCMProductsSVC {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    public delegate void CreateCompletedEventHandler(object sender, CreateCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class CreateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal CreateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public SalesItems SalesItems {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((SalesItems)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    public delegate void CreateMultipleCompletedEventHandler(object sender, CreateMultipleCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class CreateMultipleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal CreateMultipleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public SalesItems[] SalesItems_List {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((SalesItems[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    public delegate void UpdateCompletedEventHandler(object sender, UpdateCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal UpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public SalesItems SalesItems {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((SalesItems)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    public delegate void UpdateMultipleCompletedEventHandler(object sender, UpdateMultipleCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateMultipleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal UpdateMultipleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public SalesItems[] SalesItems_List {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((SalesItems[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    public delegate void DeleteCompletedEventHandler(object sender, DeleteCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class DeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal DeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
             }
         }
     }

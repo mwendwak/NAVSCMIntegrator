@@ -10,7 +10,7 @@ using System.Web.Services;
 namespace NAVSCMIntegrator
 {
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Customers")]
+    /*[ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Customers")]
     public interface INavCustomer
     {
         [OperationContract]
@@ -23,11 +23,16 @@ namespace NAVSCMIntegrator
         NavCustomer parseStringCustomer(string xCustomerID,string xCustomerNames,string xCustomerBusGroup, string xRouteSalesArea
             , string xPINNo, string xCustomerPhoneNo, string xPostingGroup, string xVATGroup);
     }
-
-    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Products")]
+    */
+    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Service/NAVRouter.svc/Products")]
     public interface INavProduct
     {
         [OperationContract]
+        [WebInvoke(Method = "GET",
+                       RequestFormat = WebMessageFormat.Json,
+                       ResponseFormat = WebMessageFormat.Json,
+                       BodyStyle = WebMessageBodyStyle.Wrapped,
+                       UriTemplate = "Products")]
         List <NavProduct> getProductsAll();
         [OperationContract]
         NavProduct getProductFiltered(string productCode);

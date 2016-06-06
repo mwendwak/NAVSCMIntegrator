@@ -184,10 +184,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://zeus.olympus.com:8817/ALMASI2016/WS/MKBL_GOLIVE/Page/SalesItems">
+    <WebReferenceUrl Include="http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/SalesItems">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\SCMProductsSVC\</RelPath>
-      <UpdateFromURL>http://zeus.olympus.com:8817/ALMASI2016/WS/MKBL_GOLIVE/Page/SalesItems</UpdateFromURL>
+      <UpdateFromURL>http://zeus.olympus.com:8817/ALMASI2016/WS/RVBL_GOLIVE/Page/SalesItems</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

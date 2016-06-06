@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 namespace NAVSCMIntegrator
 {
     using SCMProductsSVC;
-
+    using System.Net;
+    using System.ServiceModel.Web;
     class ProductManager
     {
         public List<NavProduct> getAllNavProducts()
         {
             SalesItems_Service ProductsSVC = new SalesItems_Service();
+            //ProductsSVC.Credentials = new NetworkCredential ("Administrator","allowme@1","Olympus");
             ProductsSVC.UseDefaultCredentials = true;
-
+            ProductsSVC.PreAuthenticate = true;
             List<NavProduct> allNavProducts = new List<NavProduct>();
 
             const int fetchsize = 0;
@@ -48,14 +50,16 @@ namespace NAVSCMIntegrator
         {
             //transpose Nav Product to Router Product Rec
             NavProduct newItemRec = new NavProduct();
-            newItemRec.ProdGroup = NavItemRec.Product_Group_Code; //create the lookups for this
+            newItemRec.ProdGroup = NavItemRec.Item_Category_Code; //create the lookups for this
             newItemRec.ProductID = NavItemRec.No;
             newItemRec.UOM = NavItemRec.Base_Unit_of_Measure; //create the lookups for this
             newItemRec.Pack = NavItemRec.Pack;
-            newItemRec.UnitPrice = NavItemRec.Standard_Cost; //change this to look at an actual price ist
+            newItemRec.Family = NavItemRec.Family;
+            newItemRec.UnitPrice = NavItemRec.Unit_Price; //change this to look at an actual price ist
             newItemRec.InventGroup = NavItemRec.Inventory_Posting_Group; //create the lookups for this
             newItemRec.Location = newItemRec.getItemLocation(NavItemRec.No);
-            newItemRec.ItemTrackngID = NavItemRec.Item_Tracking_Code; //major code for this operation
+            newItemRec.ItemTrackngID = "LOT AAA"; //major code for this operation
+
             return newItemRec;
         }
     }
