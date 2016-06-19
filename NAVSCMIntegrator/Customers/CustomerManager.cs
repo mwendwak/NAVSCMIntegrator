@@ -26,7 +26,7 @@ namespace NAVSCMIntegrator
                 customer.Customer_Posting_Group = webCustomer.PostingGroup;
                 customer.VAT_Bus_Posting_Group = webCustomer.VATGroup;
                 customer.Credit_Limit_LCY = webCustomer.CreditLimit;
-
+                customer.Address = webCustomer.Address;
                 customerSVC.Update(ref customer);
             }
             catch
@@ -98,8 +98,8 @@ namespace NAVSCMIntegrator
             newCustomerRec.CustomerPhoneNo = NavCustomerRec.Phone_No;
             newCustomerRec.PostingGroup = NavCustomerRec.Customer_Posting_Group; //change this to look at an actual price ist
             newCustomerRec.VATGroup = NavCustomerRec.VAT_Bus_Posting_Group; //create the lookups for this
-            newCustomerRec.CreditLimit = newCustomerRec.CreditLimit;
-
+            newCustomerRec.CreditLimit = NavCustomerRec.Credit_Limit_LCY;
+            newCustomerRec.Address = NavCustomerRec.Address;
             return newCustomerRec;
         }
 

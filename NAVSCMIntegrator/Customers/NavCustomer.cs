@@ -30,7 +30,9 @@ namespace NAVSCMIntegrator
             public string VATGroup { get; set; }
         [DataMember]
         public decimal CreditLimit { get; set; }
-    
+        [DataMember]
+        public string Address { get; set; }
+
         public NavCustomer()
         {
             //constructor
