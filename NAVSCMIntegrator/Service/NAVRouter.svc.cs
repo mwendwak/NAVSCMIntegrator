@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Web.Script.Services;
@@ -8,7 +9,7 @@ namespace NAVSCMIntegrator
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-    public class NavRouter : INavProduct //, INavCustomer,   //INHERIT ALL ENTITY INTERFACES
+    public class NavRouter : INavProduct, INavInboundCustomers   //INHERIT ALL ENTITY INTERFACES
     {
         /* *********************************CUSTOMER RELATED FUNCTIONS****************************************** */
         /*public string createCustomer(NavCustomer navCustomer)
@@ -62,6 +63,22 @@ namespace NAVSCMIntegrator
             ProductManager ProdManager = new ProductManager();
             return ProdManager.getNavProduct(productCode);
         }
+        /* *********************************NAV CUSTOMERS RELATED FUNCTIONS****************************************** */
+        [WebInvoke(Method = "GET",
+               RequestFormat = WebMessageFormat.Json,
+               ResponseFormat = WebMessageFormat.Json,
+               BodyStyle = WebMessageBodyStyle.Wrapped,
+               UriTemplate = "Customers")]
+        public List<NavCustomer> NavCustomers()
+        {
+            CustomerManager custManager = new CustomerManager();
+            return custManager.getAllNavCustomers();
+        }
 
+        public NavCustomer getNavCustomerFiltered(string custCode)
+        {
+            CustomerManager CustManager = new CustomerManager();
+            return CustManager.getNavCustomer(custCode);
+        }
     }
 }

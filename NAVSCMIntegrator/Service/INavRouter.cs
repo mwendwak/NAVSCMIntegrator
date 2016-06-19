@@ -24,7 +24,20 @@ namespace NAVSCMIntegrator
             , string xPINNo, string xCustomerPhoneNo, string xPostingGroup, string xVATGroup);
     }
     */
-    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Service/NAVRouter.svc/Products")]
+    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Service/NAVRouter.svc")]
+    public interface INavInboundCustomers
+    {
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+                       RequestFormat = WebMessageFormat.Json,
+                       ResponseFormat = WebMessageFormat.Json,
+                       BodyStyle = WebMessageBodyStyle.Wrapped,
+                       UriTemplate = "NAVCustomers")]
+        List<NavCustomer> NavCustomers();
+        [OperationContract]
+        NavCustomer getNavCustomerFiltered(string CustomerCode);
+    }
+    [ServiceContract(Namespace = "http://localhost/NAVSCMIntegrator/Service/NAVRouter.svc")]
     public interface INavProduct
     {
         [OperationContract]
