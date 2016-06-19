@@ -16,21 +16,23 @@ namespace NAVSCMIntegrator
         [DataMember]
             public string ProductID     {get; set;}
         [DataMember]
+            public string Name          { get; set;}
+        [DataMember]
             public string UOM           {get; set;}
         [DataMember]
             public string ProdGroup     {get; set;}
         [DataMember]
             public string Pack          {get; set;}
         [DataMember]
-            public decimal  UnitPrice     {get; set;}
+            public decimal  UnitPrice   {get; set;}
         [DataMember]
             public string InventGroup   {get; set;}
         [DataMember]
             public string Location      {get; set;}
         [DataMember]
-        public string ItemTrackngID { get; set; }
+            public string ItemTrackngID { get; set; }
         [DataMember]
-        public string Family { get; set; }
+            public string Family        { get; set; }
 
         public decimal getItemPrice(string itemCode, string priceGroup)
         {

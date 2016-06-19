@@ -52,6 +52,7 @@ namespace NAVSCMIntegrator
             NavProduct newItemRec = new NavProduct();
             newItemRec.ProdGroup = NavItemRec.Item_Category_Code; //create the lookups for this
             newItemRec.ProductID = NavItemRec.No;
+            newItemRec.Name = NavItemRec.Description;
             newItemRec.UOM = NavItemRec.Base_Unit_of_Measure; //create the lookups for this
             newItemRec.Pack = NavItemRec.Pack;
             newItemRec.Family = NavItemRec.Family;
